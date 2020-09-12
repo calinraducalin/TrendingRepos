@@ -1,0 +1,16 @@
+PODS:
+  - StanwoodCore (1.7)
+
+DEPENDENCIES:
+  - StanwoodCore
+
+SPEC REPOS:
+  trunk:
+    - StanwoodCore
+
+SPEC CHECKSUMS:
+  StanwoodCore: b00bb3703d843d583fd884b603f0b88a77bc84b4
+
+PODFILE CHECKSUM: 7b834fd2881e7d94514b3f76d5ffbb732f23e4ac
+
+COCOAPODS: 1.9.3
