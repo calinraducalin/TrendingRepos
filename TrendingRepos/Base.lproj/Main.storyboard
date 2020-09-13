@@ -26,7 +26,7 @@
         <!--Repositories-->
         <scene sceneID="3nr-Mz-JYV">
             <objects>
-                <viewController id="9Sa-aO-7lL" sceneMemberID="viewController">
+                <viewController id="9Sa-aO-7lL" customClass="TrendingReposViewController" customModule="TrendingRepos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VU6-zK-4es">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
