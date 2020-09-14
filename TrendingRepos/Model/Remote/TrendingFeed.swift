@@ -24,4 +24,9 @@ struct RepoItem: Codable {
   let forksCount: Int?
   let stargazersCount: Int?
   let createdAt: Date?
+  let owner: Owner?
+}
+
+struct Owner: Codable {
+  let avatarUrl: URL?
 }

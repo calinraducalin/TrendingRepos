@@ -9,22 +9,6 @@
 import Foundation
 
 class TrendingAPI {
-  enum TrendingTime {
-    case lastDay, lastMonth, lastYear
-
-    func makeCalendarComponent() -> Calendar.Component {
-      let component: Calendar.Component
-      switch self {
-      case .lastDay:
-        component = .day
-      case .lastMonth:
-        component = .month
-      case .lastYear:
-        component = .year
-      }
-      return component
-    }
-  }
 
   private var trendingSource: NetworkSource<TrendingFeed>?
 
@@ -36,7 +20,7 @@ class TrendingAPI {
 }
 
 fileprivate struct TrendingURLBuilding: SourceURLBuilding {
-  let time: TrendingAPI.TrendingTime
+  let time: TrendingTime
   let page: Int
 
   func makePath() -> String { "/search/repositories" }
