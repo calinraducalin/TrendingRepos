@@ -17,6 +17,7 @@ class Repository: Object {
   @objc dynamic var details = ""
   @objc dynamic var language = ""
   @objc dynamic var imageURLString = ""
+  @objc dynamic var cloneURLString = ""
   @objc dynamic var createdAt = Date()
 
   func update(with item: RepoItem) {
@@ -28,6 +29,7 @@ class Repository: Object {
     details = item.description ?? details
     language = item.language ?? language
     imageURLString = item.owner?.avatarUrl?.absoluteString ?? imageURLString
+    cloneURLString = item.cloneUrl?.absoluteString ?? cloneURLString
     createdAt = item.createdAt ?? createdAt
   }
 }

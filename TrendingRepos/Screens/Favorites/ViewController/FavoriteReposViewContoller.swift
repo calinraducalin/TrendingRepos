@@ -62,6 +62,12 @@ extension FavoriteReposViewContoller:  UICollectionViewDataSource {
 
 extension FavoriteReposViewContoller: UICollectionViewDelegate {
 
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let item = viewModel.item(at: indexPath) as? FavoriteRepoCellViewModel else { return }
+    let repoDetailsController = RepoDetailsViewController(repository: item.repository)
+    navigationController?.pushViewController(repoDetailsController, animated: true)
+  }
+
 }
 
 extension FavoriteReposViewContoller:  RepoItemCollectionViewCellDelegate {

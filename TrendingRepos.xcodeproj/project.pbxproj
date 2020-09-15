@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		284649672510BBEC008D9988 /* RepoDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284649662510BBEC008D9988 /* RepoDetailsView.swift */; };
+		284649692510BE96008D9988 /* RepoDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284649682510BE96008D9988 /* RepoDetailsViewController.swift */; };
+		2846496B2510D19E008D9988 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846496A2510D19E008D9988 /* FooterView.swift */; };
+		2846496D2510D1B6008D9988 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846496C2510D1B6008D9988 /* CellView.swift */; };
+		2846496F2510D1D1008D9988 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2846496E2510D1D1008D9988 /* HeaderView.swift */; };
+		284649712510D20A008D9988 /* CellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284649702510D20A008D9988 /* CellModel.swift */; };
 		28764EED250E08A2005365BD /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28764EE7250E08A1005365BD /* JSONParser.swift */; };
 		28764EEE250E08A2005365BD /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28764EE8250E08A1005365BD /* Header.swift */; };
 		28764EEF250E08A2005365BD /* SourceURLBuilding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28764EE9250E08A1005365BD /* SourceURLBuilding.swift */; };
@@ -43,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		04665E850868B07D7F9B7635 /* Pods_TrendingRepos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TrendingRepos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		284649662510BBEC008D9988 /* RepoDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsView.swift; sourceTree = "<group>"; };
+		284649682510BE96008D9988 /* RepoDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoDetailsViewController.swift; sourceTree = "<group>"; };
+		2846496A2510D19E008D9988 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		2846496C2510D1B6008D9988 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		2846496E2510D1D1008D9988 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		284649702510D20A008D9988 /* CellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellModel.swift; sourceTree = "<group>"; };
 		28764EE7250E08A1005365BD /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONParser.swift; path = ../JSONParser.swift; sourceTree = "<group>"; };
 		28764EE8250E08A1005365BD /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Header.swift; path = ../Header.swift; sourceTree = "<group>"; };
 		28764EE9250E08A1005365BD /* SourceURLBuilding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SourceURLBuilding.swift; path = ../SourceURLBuilding.swift; sourceTree = "<group>"; };
@@ -92,6 +104,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		284649652510BBA1008D9988 /* RepoDetails */ = {
+			isa = PBXGroup;
+			children = (
+				284649662510BBEC008D9988 /* RepoDetailsView.swift */,
+				284649682510BE96008D9988 /* RepoDetailsViewController.swift */,
+				2846496A2510D19E008D9988 /* FooterView.swift */,
+				2846496C2510D1B6008D9988 /* CellView.swift */,
+				2846496E2510D1D1008D9988 /* HeaderView.swift */,
+				284649702510D20A008D9988 /* CellModel.swift */,
+			);
+			path = RepoDetails;
+			sourceTree = "<group>";
+		};
 		28764EE6250E088F005365BD /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -152,6 +177,7 @@
 		28764F07250E0EC7005365BD /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				284649652510BBA1008D9988 /* RepoDetails */,
 				28BF931E2510969E0011DFFB /* Favorites */,
 				28764F08250E0EE7005365BD /* Trending */,
 			);
@@ -413,19 +439,24 @@
 				28764EF6250E090D005365BD /* URLResponse+Helpers.swift in Sources */,
 				28764F04250E0CA2005365BD /* TrendingAPI.swift in Sources */,
 				28E1280A2510A115007B2535 /* FavoriteReposViewContoller.swift in Sources */,
+				2846496B2510D19E008D9988 /* FooterView.swift in Sources */,
 				2883FD5A251008F70061F641 /* TrendingReposDataSource.swift in Sources */,
 				28764EEF250E08A2005365BD /* SourceURLBuilding.swift in Sources */,
 				28764F00250E0BAD005365BD /* ModelError.swift in Sources */,
+				2846496D2510D1B6008D9988 /* CellView.swift in Sources */,
 				28764EF0250E08A2005365BD /* NetworkSource.swift in Sources */,
 				28BF9322251096E10011DFFB /* PersistanceManager.swift in Sources */,
 				28764EEE250E08A2005365BD /* Header.swift in Sources */,
+				284649712510D20A008D9988 /* CellModel.swift in Sources */,
 				28BF931D251094AE0011DFFB /* Repository.swift in Sources */,
 				2883FD62251009630061F641 /* TrendingReposViewModel.swift in Sources */,
 				2883FD602510094C0061F641 /* TrendingTime.swift in Sources */,
 				28E1280F2510B268007B2535 /* FavoriteRepoCellViewModel.swift in Sources */,
+				2846496F2510D1D1008D9988 /* HeaderView.swift in Sources */,
 				28E1280D2510A175007B2535 /* UIViewController+Alert.swift in Sources */,
 				28E128132510B2A2007B2535 /* ReposCollectionViewModel.swift in Sources */,
 				2883FD5C251009270061F641 /* TrendingRepoCellViewModel.swift in Sources */,
+				284649692510BE96008D9988 /* RepoDetailsViewController.swift in Sources */,
 				28764F13250E4660005365BD /* RepoItemCollectionViewCell.swift in Sources */,
 				28BDF0E3250CADA7003D5D15 /* AppDelegate.swift in Sources */,
 				28764F0E250E1305005365BD /* TrendingFeed.swift in Sources */,
@@ -433,6 +464,7 @@
 				28764EF5250E090D005365BD /* URLRequest+Helpers.swift in Sources */,
 				28764F0C250E0FB9005365BD /* TrendingReposViewController.swift in Sources */,
 				28E128152510B30B007B2535 /* LayoutType.swift in Sources */,
+				284649672510BBEC008D9988 /* RepoDetailsView.swift in Sources */,
 				28764EF1250E08A2005365BD /* NetworkController.swift in Sources */,
 				2883FD5E2510093C0061F641 /* RepoCellViewModel.swift in Sources */,
 				28764EED250E08A2005365BD /* JSONParser.swift in Sources */,

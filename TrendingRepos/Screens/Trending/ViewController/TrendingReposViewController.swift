@@ -98,6 +98,14 @@ extension TrendingReposViewController: UICollectionViewDataSource {
 
 extension TrendingReposViewController: UICollectionViewDelegate {
 
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let item = viewModel.dataSource.item(at: indexPath) as? TrendingRepoCellViewModel else { return }
+    let repository = Repository()
+    repository.update(with: item.repoItem)
+    let repoDetailsController = RepoDetailsViewController(repository: repository)
+    navigationController?.pushViewController(repoDetailsController, animated: true)
+  }
+
 }
 
 extension TrendingReposViewController: RepoItemCollectionViewCellDelegate {

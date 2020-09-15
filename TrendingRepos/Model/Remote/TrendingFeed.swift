@@ -25,6 +25,7 @@ struct RepoItem: Codable {
   let stargazersCount: Int?
   let createdAt: Date?
   let owner: Owner?
+  let cloneUrl: URL?
 }
 
 struct Owner: Codable {
