@@ -50,6 +50,7 @@ class TrendingReposViewController: UIViewController {
 
   private func setupCollectionView() {
     collectionView.setCollectionViewLayout(viewModel.makeLayout(), animated: false)
+    collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: viewModel.footerID)
     collectionView.register(UINib(nibName: viewModel.repoCellName, bundle: nil), forCellWithReuseIdentifier: viewModel.repoCellName)
     collectionView.delegate = self
     collectionView.dataSource = self
@@ -93,6 +94,38 @@ extension TrendingReposViewController: UICollectionViewDataSource {
     (cell as? RepoItemCollectionViewCell)?.delegate = self
 
     return cell
+  }
+
+  func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: viewModel.footerID, for: indexPath)
+    if viewModel.shouldDisplayLoadMoreActivity {
+      addActivityIndicatorIfNeeded(to: view)
+      viewModel.dataSource.loadItems()
+    } else {
+      removeActivityIndicator(from: view)
+    }
+    return view
+  }
+
+  //MARK: - Private
+
+  private func activityIndicator(in view: UIView) -> UIActivityIndicatorView? {
+    return view.subviews.compactMap{ $0 as? UIActivityIndicatorView }.first
+  }
+
+  private func addActivityIndicatorIfNeeded(to view: UIView) {
+    guard activityIndicator(in: view) == nil else { return }
+
+    let activityIndicator = UIActivityIndicatorView(style: .large)
+    activityIndicator.center = CGPoint(x: view.center.x, y: 15)
+    activityIndicator.hidesWhenStopped = true
+    activityIndicator.startAnimating()
+    view.addSubview(activityIndicator)
+  }
+
+  private func removeActivityIndicator(from view: UIView) {
+    let activityView = activityIndicator(in: view)
+    activityView?.removeFromSuperview()
   }
 }
 

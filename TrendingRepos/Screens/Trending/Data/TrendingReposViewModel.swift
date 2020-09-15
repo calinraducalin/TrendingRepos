@@ -28,6 +28,10 @@ class TrendingReposViewModel: ReposCollectionViewModel {
     layoutType = UIDevice.current.userInterfaceIdiom == .pad ? .grid : .list
   }
 
+  var shouldDisplayLoadMoreActivity: Bool { dataSource.hasMore && !dataSource.isLoading }
+
+  var footerID: String { String(describing: UICollectionReusableView.self) }
+
   var shouldLoadItems: Bool { dataSource.items.isEmpty }
 
   var numberOfSegments: Int { TrendingTime.allCases.count }

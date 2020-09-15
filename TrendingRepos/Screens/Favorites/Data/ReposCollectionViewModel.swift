@@ -21,9 +21,12 @@ extension ReposCollectionViewModel {
                                           heightDimension: .estimated(100))
     let subitem = NSCollectionLayoutItem(layoutSize: itemSize)
     let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitem: subitem, count: columnsCount)
+    let footerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .estimated(50))
+    let footer = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: footerSize, elementKind: UICollectionView.elementKindSectionFooter, alignment: .bottom)
     let section = NSCollectionLayoutSection(group: group)
     section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
     section.interGroupSpacing = 10
+    section.boundarySupplementaryItems = [footer]
     let layout = UICollectionViewCompositionalLayout(section: section)
 
     return layout
