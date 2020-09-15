@@ -9,8 +9,14 @@
 import UIKit
 import Kingfisher
 
+protocol RepoItemCollectionViewCellDelegate: AnyObject {
+  func didTapFavoriteButton(item: RepoCellViewModel)
+}
+
 class RepoItemCollectionViewCell: UICollectionViewCell {
 
+  weak var delegate: RepoItemCollectionViewCellDelegate?
+  private var item: RepoCellViewModel?
   @IBOutlet private weak var imageView: UIImageView!
   @IBOutlet private weak var titleLabel: UILabel!
   @IBOutlet private weak var subtitleLabel: UILabel!
@@ -23,17 +29,21 @@ class RepoItemCollectionViewCell: UICollectionViewCell {
   }
 
 
-  func update(with viewModel: RepoCellViewModel) {
-    titleLabel.text = viewModel.title
-    subtitleLabel.text = viewModel.subtitle
-    favoriteButton.isSelected = viewModel.isFavorite
-    imageView.kf.setImage(with: viewModel.imageURL)
+  func update(with item: RepoCellViewModel) {
+    self.item = item
+    titleLabel.text = item.title
+    subtitleLabel.text = item.subtitle
+    favoriteButton.isSelected = item.isFavorite
+    imageView.kf.setImage(with: item.imageURL)
   }
 
 
   @IBAction func favoriteButtonAction(_ sender: Any) {
-    
+    guard let item = item else { return }
+    delegate?.didTapFavoriteButton(item: item)
   }
+
+
 
 
 

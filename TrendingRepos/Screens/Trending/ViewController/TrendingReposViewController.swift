@@ -21,7 +21,13 @@ class TrendingReposViewController: UIViewController {
     viewModel.delegate = self
     setupCollectionView()
     setupRefreshControl()
+    setupSegmentedControl()
     refreshItems()
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    collectionView.reloadData()
   }
 
   //MARK: - Actions
@@ -55,10 +61,10 @@ class TrendingReposViewController: UIViewController {
     collectionView.refreshControl = refreshControl
   }
 
-  private func showAlert(title: String?, message: String?) {
-    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-    present(alertController, animated: true, completion: nil)
+  func setupSegmentedControl() {
+    for index in 0 ..< viewModel.numberOfSegments {
+      segmentedControl.setTitle(viewModel.title(for: index), forSegmentAt: index)
+    }
   }
 }
 
@@ -84,6 +90,7 @@ extension TrendingReposViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: viewModel.repoCellName, for: indexPath)
     let item = viewModel.dataSource.item(at: indexPath)
     (cell as? RepoItemCollectionViewCell)?.update(with: item)
+    (cell as? RepoItemCollectionViewCell)?.delegate = self
 
     return cell
   }
@@ -93,3 +100,16 @@ extension TrendingReposViewController: UICollectionViewDelegate {
 
 }
 
+extension TrendingReposViewController: RepoItemCollectionViewCellDelegate {
+  func didTapFavoriteButton(item: RepoCellViewModel) {
+    viewModel.favoriteButtonAction(item: item)
+    collectionView.reloadData()
+    let action = item.isFavorite ? "added to" : "removed from"
+    let message = "Successfully \(action) favorites."
+    let alertController = makeAlertController(title: "Favorites", message: message)
+    present(alertController, animated: true, completion: nil)
+    DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+      alertController.dismiss(animated: true)
+    }
+  }
+}

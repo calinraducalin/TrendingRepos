@@ -11,14 +11,45 @@
         <!--Favorites-->
         <scene sceneID="fmn-aU-NCJ">
             <objects>
-                <viewController id="DvD-zh-lnB" sceneMemberID="viewController">
+                <viewController id="DvD-zh-lnB" customClass="FavoriteReposViewContoller" customModule="TrendingRepos" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kV3-qU-r7g">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9wu-Iw-6ok">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="rUM-KG-5WC">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="hYs-e2-qAo">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="un5-TA-KsY">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="9zi-c3-Jbr" firstAttribute="bottom" secondItem="9wu-Iw-6ok" secondAttribute="bottom" id="AOi-kP-tXm"/>
+                            <constraint firstItem="9wu-Iw-6ok" firstAttribute="top" secondItem="9zi-c3-Jbr" secondAttribute="top" id="Ttr-IS-JAv"/>
+                            <constraint firstItem="9zi-c3-Jbr" firstAttribute="trailing" secondItem="9wu-Iw-6ok" secondAttribute="trailing" id="dqK-g8-lK7"/>
+                            <constraint firstItem="9wu-Iw-6ok" firstAttribute="leading" secondItem="9zi-c3-Jbr" secondAttribute="leading" id="kXC-ob-oby"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9zi-c3-Jbr"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="gQf-21-Jjb"/>
+                    <connections>
+                        <outlet property="collectionView" destination="9wu-Iw-6ok" id="kwy-qr-rvj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqo-u8-eXS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -7,6 +7,7 @@ target 'TrendingRepos' do
 
   # Pods for TrendingRepos
   pod 'StanwoodCore'
+  pod 'RealmSwift'
   pod 'Kingfisher'
 
   post_install do |installer|

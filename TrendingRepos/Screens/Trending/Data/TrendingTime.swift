@@ -23,4 +23,17 @@ enum TrendingTime: Int, CaseIterable {
     }
     return component
   }
+
+  func makeTitle() -> String {
+    let title: String
+    switch self {
+    case .lastDay:
+      title = "Day"
+    case .lastMonth:
+      title = "Month"
+    case .lastYear:
+      title = "Year"
+    }
+    return title
+  }
 }

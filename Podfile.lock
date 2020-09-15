@@ -2,21 +2,31 @@ PODS:
   - Kingfisher (5.15.0):
     - Kingfisher/Core (= 5.15.0)
   - Kingfisher/Core (5.15.0)
+  - Realm (5.4.0):
+    - Realm/Headers (= 5.4.0)
+  - Realm/Headers (5.4.0)
+  - RealmSwift (5.4.0):
+    - Realm (= 5.4.0)
   - StanwoodCore (1.7)
 
 DEPENDENCIES:
   - Kingfisher
+  - RealmSwift
   - StanwoodCore
 
 SPEC REPOS:
   trunk:
     - Kingfisher
+    - Realm
+    - RealmSwift
     - StanwoodCore
 
 SPEC CHECKSUMS:
   Kingfisher: 1acb67597a520c2d0310677e66d6e0af455ef757
+  Realm: 8949757d76e2451a53d727954c607e49c2542b77
+  RealmSwift: 0b7d7121e842724188123c6086831ae6d2952050
   StanwoodCore: b00bb3703d843d583fd884b603f0b88a77bc84b4
 
-PODFILE CHECKSUM: b3c01f06e901ffa10ee888a79708b7beabbdffe0
+PODFILE CHECKSUM: fb84c8eb53e2ebd3a1e69106cf7625beb2c885b4
 
 COCOAPODS: 1.9.3

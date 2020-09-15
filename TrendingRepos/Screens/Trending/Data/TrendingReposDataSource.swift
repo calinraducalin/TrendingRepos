@@ -11,16 +11,18 @@ import Foundation
 class TrendingReposDataSource {
 
   let trendingAPI: TrendingAPI
+  let persistanceManager: PersistanceManager
   let trendingTime: TrendingTime
   var items: [RepoCellViewModel] = []
   var page: Int = 1
   var hasMore: Bool = true
   private weak var delegate: TrendingReposViewModelDelegate?
 
-  init(time: TrendingTime, api: TrendingAPI, delegate: TrendingReposViewModelDelegate?) {
+  init(time: TrendingTime, api: TrendingAPI, persistanceManager: PersistanceManager, delegate: TrendingReposViewModelDelegate?) {
     self.delegate = delegate
     self.trendingTime = time
     self.trendingAPI = api
+    self.persistanceManager = persistanceManager
   }
 
   var numberOfItems: Int { items.count }
@@ -40,7 +42,7 @@ class TrendingReposDataSource {
           self.items.removeAll()
         }
         let feedItem = feed.items ?? []
-        let newItems = feedItem.map { TrendingRepoCellViewModel(repoItem: $0) }
+        let newItems = feedItem.map { TrendingRepoCellViewModel(repoItem: $0, persistanceManager: self.persistanceManager) }
         self.items.append(contentsOf: newItems)
         self.delegate?.didLoadItems()
       case .failure(let error):
